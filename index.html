@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Simon Game</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div id="simon-board">
+  <h1>Simon</h1>
+  <div id="level">- -</div>
+   <button id="start">Start</button> 
+   <button id="play-again">Again?</button>
+    <div id="on-off-section">
+    <p>ON</p> 
+    <button class="on-off" id="on"></button>
+    <button class="on-off" id="off"></button> 
+    <p>OFF</p>
+  </div>
+</div>
+  
+
+  
+  <div id="simon-game">  
+    <div class="square" id="s1" data-value=0>
+      <div class="overlay hidden"></div>
+    </div>
+    
+    <div class="square" id="s2" data-value=1>
+      <div class="overlay hidden"></div>
+    </div>
+    
+    <div class="square" id="s3" data-value=2>
+          <div class="overlay hidden"></div>      
+    </div>
+    
+    <div class="square" id="s4" data-value=3>
+      <div class="overlay hidden"></div>
+    </div>     
+</div>
+
+  <div id="text">Turn On Your Device. </div>
+ 
+ 
+
+
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
