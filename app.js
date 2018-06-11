@@ -81,7 +81,8 @@ function hello(event){
   userArr = [];
   let num = randomNum();
   cpuArr.push(num)
-  let interval = setInterval(function(){ 
+  if(currentLevel !== -1){
+     let interval = setInterval(function(){ 
       overlay[cpuArr[index]].style.visibility = "visible";
       audio[cpuArr[index]].play();
     
@@ -105,6 +106,9 @@ function hello(event){
       clearInterval(interval);
     }
   },1000)
+    
+  }
+ 
   
   }
   
