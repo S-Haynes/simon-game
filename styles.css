@@ -52,6 +52,7 @@ p {
 }
 
 #start {
+  margin-left: 15px;
   background: rgb(170, 0, 0);
   filter: grayscale(100%);
   transition: filter 1s ease-out;
@@ -126,7 +127,7 @@ p {
 .on-off {
   border-radius: 0%;
   width:20%;
-  height: 30px;  
+  height: 25px;  
   border: none;
 }
 
@@ -147,7 +148,7 @@ p {
   position: absolute;
   background: #ccc;
   width: 20%;
-  height: 30px;
+  height: 25px;
   top: 64.5%;
   left: 28%;
   transform: translateX(100%);
@@ -233,6 +234,7 @@ p {
 }
 
 
+
 #level {
   position: relative;
   box-sizing: border-box;
@@ -276,7 +278,12 @@ p {
 }
 
 #btn-box {
+  height: 20px;
   top: 56.5%;
+}
+
+.on-off {
+  height: 20px;
 }
 
   
