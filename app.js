@@ -10,6 +10,7 @@ window.addEventListener('load', function(){
    let leveltext = document.querySelector("#level");
    let onBtn = document.querySelector("#on");
    let offBtn = document.querySelector("#off");
+   let btn_box = document.querySelector("#btn-box");
    let cpuArr = [];
    let currentLevel = 0;
    let index = 0;
@@ -102,8 +103,7 @@ function hello(event){
   // on & off button functionality 
 function turnOn(){
     btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
-    this.style.background = "#232323";
-    offBtn.style.background = "#aaa";
+    btn_box.style.transform = "translateX(0%)";
       text.innerHTML = "Press Start 2 Play.";
 
     for(var i = 0; i < square.length; i++){
@@ -125,8 +125,7 @@ function turnOn(){
     leveltext.innerHTML = "- -";
     btn_wrap.style.animation = "none";
     btn_wrap.style.transform = "rotate(0deg)";
-    this.style.background = "#232323";
-    onBtn.style.background = "#aaa";
+    btn_box.style.transform = "translateX(100%)";
     text.innerHTML = "Turn On Your Device.";
     playagain.style.display = "none";
     start.style.display = "inline-block";
