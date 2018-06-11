@@ -73,7 +73,7 @@ return true;
    start.removeEventListener('click', startGame, false)
 
    if(currentLevel+1 > 9){
-    leveltext.innerHTML = "<span class='no-select'>" + currentLevel + 1 +"<span>";
+    leveltext.innerHTML = "<span class='no-select'>" + (currentLevel + 1) +"<span>";
   } else{
     leveltext.innerHTML = "<span class='no-select'>" + "0" + (currentLevel + 1) +"<span>";
   }
