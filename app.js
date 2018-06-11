@@ -76,13 +76,16 @@ function hello(event){
     }, 500)
    
     if(index+1 >= currentLevel){
-      setTimeout(function(){
-      for(var k = 0; k < square.length; k++){
-     square[k].addEventListener('click', hello, false)
+      if(currentLevel !== -1){
+       setTimeout(function(){
+       for(var k = 0; k < square.length; k++){
+       square[k].addEventListener('click', hello, false)
       }
          start.addEventListener('click', startGame, false)
 
       }, 700)
+      }
+    
       
       clearInterval(interval);
     }
@@ -130,7 +133,7 @@ function turnOn(){
     playagain.style.display = "none";
     start.style.display = "inline-block";
     start.innerHTML = "START";
-    currentLevel = 0;
+    currentLevel = -1;
    
      for(var i = 0; i < square.length; i++){
        square[i].style.filter = "grayscale(100%)"
