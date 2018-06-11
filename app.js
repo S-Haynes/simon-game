@@ -179,6 +179,9 @@ function turnOn(){
   // start the game  
   function startGame(){
     currentLevel = -1;
+    for(var i = 0; i < overlay.length; i++){
+      overlay[i].style.visibility = "hidden";
+    }
     audio[7].play();
     audio[8].pause();
     audio[8].currentTime = 0;
