@@ -17,16 +17,12 @@ window.addEventListener('load', function(){
 
 function hello(event){
   let ele = event.target.getAttribute('data-value')
-  console.log(ele)
-      overlay[ele].classList.remove('hidden');
+      overlay[ele].style.visibility = "visible";
       setTimeout(function(){
-       overlay[ele].classList.add('hidden');  
+       overlay[ele].style.visibility = "hidden"; 
       }, 100)
      userArr.push(Number(ele))
        checkWin(); 
-  
-  console.log(userArr)
-  console.log(cpuArr)
 }
 
   //check if correct sequence is entered
@@ -35,6 +31,7 @@ function hello(event){
           if(userArr[j] !== cpuArr[j]){
            for(var k = 0; k < square.length; k++){
            square[k].removeEventListener('click', hello, false)
+            overlay[k].classList.add('hidden');
             }  
           text.innerHTML = "Wrong! Game Over."
           start.style.display = "none";
@@ -70,19 +67,22 @@ function hello(event){
   let num = randomNum();
   cpuArr.push(num)
   let interval = setInterval(function(){ 
-    overlay[cpuArr[index]].classList.remove('hidden');
+      overlay[cpuArr[index]].style.visibility = "visible";
+    
     setTimeout(function(){
-     overlay[cpuArr[index]].classList.add('hidden');
+     overlay[cpuArr[index]].style.visibility = "hidden";
      index++
     }, 500)
+   
     if(index+1 >= currentLevel){
       setTimeout(function(){
       for(var k = 0; k < square.length; k++){
      square[k].addEventListener('click', hello, false)
       }
          start.addEventListener('click', startGame, false)
+
       }, 700)
-  
+      
       clearInterval(interval);
     }
   },1000)
@@ -92,6 +92,10 @@ function hello(event){
   // play again
   playagain.addEventListener('click', function(){
     start.style.display = "inline-block";
+    for(var k = 0; k < overlay.length; k++){
+       overlay[k].classList.remove('hidden');
+    }
+   
     reset();
   })
   
@@ -100,13 +104,14 @@ function turnOn(){
     btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
     this.style.background = "#232323";
     offBtn.style.background = "#aaa";
-      text.innerHTML = "Press Start 2 Play."
+      text.innerHTML = "Press Start 2 Play.";
+
     for(var i = 0; i < square.length; i++){
-       square[i].style.filter = "grayscale(0%)"
+       square[i].style.filter = "grayscale(0%)";
+       square[i].removeEventListener('click', hello, false)
+      overlay[i].classList.remove('hidden');
     }
      start.style.filter = "grayscale(0%)"
-    
-  
    start.addEventListener('click', startGame, false);
    offBtn.addEventListener('click', turnOff, false);
    onBtn.removeEventListener('click', turnOn, false);
@@ -115,6 +120,7 @@ function turnOn(){
  function turnOff(){
    for(var k = 0; k < square.length; k++){
      square[k].removeEventListener('click', hello, false)
+     overlay[k].classList.add('hidden');
    }
     leveltext.innerHTML = "- -";
     btn_wrap.style.animation = "none";
@@ -134,7 +140,6 @@ function turnOn(){
      onBtn.addEventListener('click', turnOn, false);
      offBtn.removeEventListener('click', turnOff, false);
       start.removeEventListener('click', startGame, false);
-   console.log("hello")
  }
   
   // start the game  
