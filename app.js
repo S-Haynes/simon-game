@@ -129,6 +129,7 @@ function turnOn(){
   setTimeout(function(){
     audio[8].play();
      offBtn.addEventListener('click', turnOff, false);
+     start.addEventListener('click', startGame, false);
   }, 1000)
     btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
     btn_box.style.transform = "translateX(0%)";
@@ -140,7 +141,8 @@ function turnOn(){
       overlay[i].classList.remove('hidden');
     }
      start.style.filter = "grayscale(0%)"
-   start.addEventListener('click', startGame, false);
+
+   
    onBtn.removeEventListener('click', turnOn, false);
    }
   
