@@ -29,12 +29,22 @@ p {
   font-weight: 800;
 }
 
+.no-select {
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 #simon-board{
   position: absolute;
   line-height: 0.5;
   font-family: helvetica;
   position: absolute;
-  left: 25%;
+  left: 24%;
   top: 25%;
   background: #fff;
   width: 50%;
@@ -66,6 +76,7 @@ p {
   font-size: 50px;
   font-weight: 600;
   font-family: helvetica;
+
 }
 
 #simon-buttons {
@@ -207,6 +218,11 @@ p {
   border-top: 3px solid black;
 }
 
+.footer-text {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
 @media(max-width: 500px){
   h1{
     font-size: 1.2em;
@@ -261,6 +277,7 @@ p {
 }
   
   #text{
+    line-height: 0.1;
     font-size: 32px;
   }
 

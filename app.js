@@ -1,6 +1,7 @@
 window.addEventListener('load', function(){
    let square = document.querySelectorAll(".square");
    let overlay = document.querySelectorAll(".overlay");
+   let audio = document.querySelectorAll("audio");
    let text = document.querySelector("#text");
    let playagain = document.querySelector("#play-again");
    let start = document.querySelector("#start");
@@ -17,27 +18,35 @@ window.addEventListener('load', function(){
    let userArr = [];
 
 function hello(event){
-  let ele = event.target.getAttribute('data-value')
+    event.preventDefault();
+    let ele = event.target.getAttribute('data-value')
+  
       overlay[ele].style.visibility = "visible";
       setTimeout(function(){
        overlay[ele].style.visibility = "hidden"; 
       }, 100)
      userArr.push(Number(ele))
        checkWin(); 
+    if(currentLevel !== -1){
+        audio[ele].play();
+  }
+  
 }
 
   //check if correct sequence is entered
   function checkWin(){
      for(var j = 0; j < userArr.length; j++){
           if(userArr[j] !== cpuArr[j]){
+            currentLevel = -1;
            for(var k = 0; k < square.length; k++){
            square[k].removeEventListener('click', hello, false)
             overlay[k].classList.add('hidden');
             }  
+          audio[4].play();
           text.innerHTML = "Wrong! Game Over."
           start.style.display = "none";
           playagain.style.display = "inline-block";
-          leveltext.innerHTML = "- -";
+          leveltext.innerHTML = "<span class='no-select'>- -<span>";
           userArr = [];
           return false;
          }
@@ -63,9 +72,9 @@ function hello(event){
     start.removeEventListener('click', startGame, false)
   
   if(currentLevel+1 > 9){
-    leveltext.innerHTML = currentLevel + 1;
+    leveltext.innerHTML = "<span class='no-select'>" + currentLevel + 1 +"<span>";
   } else{
-    leveltext.innerHTML = "0" + (currentLevel + 1);
+    leveltext.innerHTML = "<span class='no-select'>" + "0" + (currentLevel + 1) +"<span>";
   }
   index = 0;
   currentLevel++
@@ -74,9 +83,11 @@ function hello(event){
   cpuArr.push(num)
   let interval = setInterval(function(){ 
       overlay[cpuArr[index]].style.visibility = "visible";
+      audio[cpuArr[index]].play();
     
     setTimeout(function(){
      overlay[cpuArr[index]].style.visibility = "hidden";
+     start.addEventListener('click', startGame, false)
      index++
     }, 500)
    
@@ -86,12 +97,8 @@ function hello(event){
        for(var k = 0; k < square.length; k++){
        square[k].addEventListener('click', hello, false)
       }
-         start.addEventListener('click', startGame, false)
-
       }, 700)
-      }
-    
-      
+      }   
       clearInterval(interval);
     }
   },1000)
@@ -100,6 +107,7 @@ function hello(event){
   
   // play again
   playagain.addEventListener('click', function(){
+    audio[10].play();
     start.style.display = "inline-block";
     for(var k = 0; k < overlay.length; k++){
        overlay[k].classList.remove('hidden');
@@ -110,9 +118,14 @@ function hello(event){
   
   // on & off button functionality 
 function turnOn(){
+  audio[5].play();
+  setTimeout(function(){
+    audio[8].play();
+     offBtn.addEventListener('click', turnOff, false);
+  }, 1000)
     btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
     btn_box.style.transform = "translateX(0%)";
-      text.innerHTML = "Press Start 2 Play.";
+      text.innerHTML = "Press Start 2 Play. <div class='footer-text'>Enjoy the Tunes!<div>";
 
     for(var i = 0; i < square.length; i++){
        square[i].style.filter = "grayscale(0%)";
@@ -121,11 +134,13 @@ function turnOn(){
     }
      start.style.filter = "grayscale(0%)"
    start.addEventListener('click', startGame, false);
-   offBtn.addEventListener('click', turnOff, false);
    onBtn.removeEventListener('click', turnOn, false);
    }
   
  function turnOff(){
+  audio[8].pause();
+  audio[8].currentTime = 0;
+  audio[6].play();
    for(var k = 0; k < square.length; k++){
      square[k].removeEventListener('click', hello, false)
      overlay[k].classList.add('hidden');
@@ -137,7 +152,7 @@ function turnOn(){
     text.innerHTML = "Turn On Your Device.";
     playagain.style.display = "none";
     start.style.display = "inline-block";
-    start.innerHTML = "START";
+    start.innerHTML = "<span class='no-select'>" + "START" +"<span>";
     currentLevel = -1;
    
      for(var i = 0; i < square.length; i++){
@@ -151,11 +166,14 @@ function turnOn(){
   
   // start the game  
   function startGame(){
-   
-    this.innerHTML = "RESET"
+    currentLevel = -1;
+    audio[7].play();
+    audio[8].pause();
+    audio[8].currentTime = 0;
+    this.innerHTML = "<span class='no-select'>" + "RESET" +"<span>";
       btn_wrap.style.animation = "none"
       btn_wrap.style.transform = "rotate(0deg)"
-      reset()
+      reset();
   }
   //reset the game
   function reset(){
@@ -165,7 +183,7 @@ function turnOn(){
     currentLevel = 0;
     cpuTurn();
 }
-  
+ 
   onBtn.addEventListener('click', turnOn, false);
   offBtn.addEventListener('click', turnOff, false);
 });

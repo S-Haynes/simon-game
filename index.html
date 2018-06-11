@@ -6,22 +6,31 @@
 </head>
 <body>
 
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3" type="audio/mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3" type="audio/mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3" type="audio/mp3"></audio>
+<audio src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3" type="audio/mp3"></audio>
+<audio src="audio/gameover.wav" type="audio/wav"></audio>
+<audio src="audio/on.wav" type="audio/wav"></audio>
+<audio src="audio/off.wav" type="audio/wav"></audio>
+<audio src="audio/start.wav" type="audio/wav"></audio>
+<audio src="audio/onmusic.flac" type="audio/flac" loop></audio>
+<audio src="audio/loadmusic.wav" type="audio/wav"></audio>
+<audio src="audio/playagain.mp3" type="audio/mp3"></audio> <!-- index 10 -->
   
+<div id="simon-game">  
 
-  
-  <div id="simon-game">  
-
- <div id="simon-board">
-  <h1>Simon</h1>
-  <div id="level">- -</div>
-   <button id="start">Start</button> 
-   <button id="play-again">Again?</button>
-    <div id="on-off-section">
-       <div id="btn-box"></div>
-    <p>ON</p> 
+ <div id="simon-board" class="no-select">
+  <h1 class="no-select">Simon</h1>
+  <div id="level" class="no-select"><span class="no-select">- -<span></div>
+   <button id="start"><span class="no-select">Start<span></button> 
+   <button id="play-again"><span class="no-select">Again?<span></button>
+    <div id="on-off-section" class="no-select">
+       <div id="btn-box" class="no-select"></div>
+    <p class="no-select">ON</p> 
     <button class="on-off" id="on"></button>
     <button class="on-off" id="off"></button> 
-    <p>OFF</p>
+    <p class="no-select">OFF</p>
   </div>
 </div>
 
@@ -45,7 +54,7 @@
    
 </div>
 
-  <div id="text">Turn On Your Device. </div>
+  <div id="text" class="no-select">Turn On Your Device. </div>
  
  
 
