@@ -87,7 +87,10 @@ function hello(event){
     
     setTimeout(function(){
      overlay[cpuArr[index]].style.visibility = "hidden";
-     start.addEventListener('click', startGame, false)
+     setTimeout(function(){
+        start.addEventListener('click', startGame, false)
+      }, 300)
+   
      index++
     }, 500)
    
