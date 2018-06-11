@@ -48,6 +48,7 @@ p {
 
 #play-again {
   display: none;
+  margin-left: 15px;
   background: rgb(0, 0, 255)
 }
 
