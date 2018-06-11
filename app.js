@@ -114,7 +114,7 @@ function hello(event){
   
   // play again
   playagain.addEventListener('click', function(){
-    audio[10].play();
+    audio[9].play();
     start.style.display = "inline-block";
     for(var k = 0; k < overlay.length; k++){
        overlay[k].classList.remove('hidden');
