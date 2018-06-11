@@ -5,6 +5,7 @@ window.addEventListener('load', function(){
    let playagain = document.querySelector("#play-again");
    let start = document.querySelector("#start");
    let gameboard = document.querySelector("#simon-game");
+   let btn_wrap = document.querySelector("#simon-buttons");
    let simonBtns = document.querySelector("#simon-board");
    let leveltext = document.querySelector("#level");
    let onBtn = document.querySelector("#on");
@@ -37,7 +38,6 @@ function hello(event){
             }  
           text.innerHTML = "Wrong! Game Over."
           start.style.display = "none";
-          simonBtns.style.zIndex = "1000";
           playagain.style.display = "inline-block";
           leveltext.innerHTML = "- -";
           userArr = [];
@@ -97,7 +97,7 @@ function hello(event){
   
   // on & off button functionality 
 function turnOn(){
-    gameboard.style.animation = "spin 6s ease-in-out 1s infinite";
+    btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
     this.style.background = "#232323";
     offBtn.style.background = "#aaa";
       text.innerHTML = "Press Start 2 Play."
@@ -117,11 +117,11 @@ function turnOn(){
      square[k].removeEventListener('click', hello, false)
    }
     leveltext.innerHTML = "- -";
-    gameboard.style.animation = "none";
-    gameboard.style.transform = "rotate(0deg)";
+    btn_wrap.style.animation = "none";
+    btn_wrap.style.transform = "rotate(0deg)";
     this.style.background = "#232323";
     onBtn.style.background = "#aaa";
-    text.innerHTML = "Turn On Your Device";
+    text.innerHTML = "Turn On Your Device.";
     playagain.style.display = "none";
     start.style.display = "inline-block";
     start.innerHTML = "START";
@@ -141,8 +141,8 @@ function turnOn(){
   function startGame(){
    
     this.innerHTML = "RESET"
-      gameboard.style.animation = "none"
-      gameboard.style.transform = "rotate(0deg)"
+      btn_wrap.style.animation = "none"
+      btn_wrap.style.transform = "rotate(0deg)"
       reset()
   }
   //reset the game

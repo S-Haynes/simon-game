@@ -1,8 +1,12 @@
+html {
+  width: 100%;
+  height: 100%;
+}
 body{
   width: 100%;
   height: 100%;
   background: url(https://images.unsplash.com/photo-1508920052992-6f5a921eba78?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2e2c140a810e26b2b9a7e4800dc888a7&auto=format&fit=crop&w=1951&q=80);
-    background-position: center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -21,16 +25,21 @@ button {
 
 }
 
+p { 
+  display: inline-block;
+  font-weight: 800;
+}
+
 #simon-board{
-  position: relative;
+  position: absolute;
   line-height: 0.5;
   font-family: helvetica;
   position: absolute;
-  left: 44.8%;
-  top: 110px;
+  left: 25%;
+  top: 25%;
   background: #fff;
-  width: 200px;
-  height: 200px;
+  width: 50%;
+  height: 50%;
   text-align: center;
   border-radius: 100%;
   border: 5px solid black;
@@ -54,10 +63,18 @@ button {
   width: 100%;
   text-align: center;
   font-size: 50px;
+  font-weight: 600;
+  font-family: helvetica;
 }
 
-
+#simon-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+}
 #simon-game{
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   width: 400px;
@@ -105,10 +122,7 @@ button {
   font-size: 24px;
 }
 
-p { 
-  display: inline-block;
-  font-weight: 800;
-}
+
 
 .on-off {
   border-radius: 0%;
@@ -178,14 +192,75 @@ p {
 }
 
 @media(max-width: 500px){
+  h1{
+    font-size: 1.2em;
+  }
+ button {
+  text-align: center; 
+  margin: 5px 0px;
+  padding-left: 9px;
+  width: 35px;
+  height: 35px;
+  text-transform: uppercase;
+  background: rgb(170, 0, 0);
+  border-radius: 100%;
+  font-size: 18px;
+  font-weight: 800;
+  outline: none;
+  overflow: hidden;
+  letter-spacing: 20px;
+
+}
+
+
+p { 
+
+  font-size: 12px;
+}
+
+
+#level {
+  position: relative;
+  box-sizing: border-box;
+  padding: 12px;
+  display: inline-block;
+  background: #232323;
+  color: white;
+  width: 30%;
+  height: 20%;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+
   #simon-game{
-  width: 90%;
-  height: 300px;
+  width: 350px;
  
+}
+
+#simon-buttons {
+ width: 300px;
+ height: 300px;
 }
   
   #text{
     font-size: 32px;
   }
+
+   #simon-board{
+    width: 150px;
+    height: 150px;
+    top: 20%;
+    left: 20%;
+  }
+
+  #off {
+  position: relative;
+  margin-left: -5px;
+  background: #232323;
+  z-index: 1000;
+}
+
   
 }
+
