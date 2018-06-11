@@ -17,6 +17,7 @@ window.addEventListener('load', function(){
  let index = 0;
  let userArr = [];
 
+
  function hello(event){
   event.preventDefault();
   let ele = event.target.getAttribute('data-value')
@@ -130,20 +131,30 @@ return true;
     }, 1000)
     btn_wrap.style.animation = "spin 6s ease-in-out 1s infinite";
     btn_box.style.transform = "translateX(0%)";
+    btn_box.style.msTransform = "translateX(0%)";
+    btn_box.style.webkitTransform = "translateX(0%)";
+    btn_box.style.OTransform = "translateX(0%)";
+    btn_box.style.MozTransform = "translateX(0%)";
     text.innerHTML = "Press Start 2 Play. <div class='footer-text'>Enjoy the Tunes!<div>";
 
     for(var i = 0; i < square.length; i++){
      square[i].style.filter = "grayscale(0%)";
+     square[i].style.webkitFilter = "grayscale(0%)";
      square[i].removeEventListener('click', hello, false)
      overlay[i].classList.remove('hidden');
    }
    start.style.filter = "grayscale(0%)"
+   start.style.webkitFilter = "grayscale(0%)"
 
    
    onBtn.removeEventListener('click', turnOn, false);
  }
 
  function turnOff(){
+  for(var a = 0; a < audio.length; a++){
+  audio[a].pause();
+  audio[a].currentTime = 0;
+  }
   audio[8].pause();
   audio[8].currentTime = 0;
   audio[6].play();
@@ -153,8 +164,16 @@ return true;
  }
  leveltext.innerHTML = "- -";
  btn_wrap.style.animation = "none";
+ btn_wrap.style.msTransform = "rotate(0deg)";
+ btn_wrap.style.OTransform = "rotate(0deg)";
+ btn_wrap.style.webkitTransform = "rotate(0deg)";
+ btn_wrap.style.MozTransform = "rotate(0deg)";
  btn_wrap.style.transform = "rotate(0deg)";
  btn_box.style.transform = "translateX(100%)";
+ btn_box.style.msTransform = "translateX(100%)";
+ btn_box.style.webkitTransform = "translateX(100%)";
+ btn_box.style.OTransform = "translateX(100%)";
+ btn_box.style.MozTransform = "translateX(100%)";
  text.innerHTML = "Turn On Your Device.";
  playagain.style.display = "none";
  start.style.display = "inline-block";
@@ -163,8 +182,11 @@ return true;
 
  for(var i = 0; i < square.length; i++){
    square[i].style.filter = "grayscale(100%)"
+   square[i].style.webkitFilter = "grayscale(100%)"
  }
  start.style.filter = "grayscale(100%)";
+ start.style.webkitFilter = "grayscale(100%)";
+
  setTimeout(function(){
   onBtn.addEventListener('click', turnOn, false);
 }, 1000)
@@ -184,7 +206,11 @@ return true;
     audio[8].currentTime = 0;
     this.innerHTML = "<span class='no-select'>" + "RESET" +"<span>";
     btn_wrap.style.animation = "none"
-    btn_wrap.style.transform = "rotate(0deg)"
+    btn_wrap.style.msTransform = "rotate(0deg)";
+    btn_wrap.style.OTransform = "rotate(0deg)";
+    btn_wrap.style.webkitTransform = "rotate(0deg)";
+    btn_wrap.style.MozTransform = "rotate(0deg)";
+    btn_wrap.style.transform = "rotate(0deg)";
     reset();
   }
   //reset the game
