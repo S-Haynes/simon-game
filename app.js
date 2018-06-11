@@ -67,6 +67,7 @@ return true;
 
   //computer color sequence 
   function cpuTurn(){
+
    for(var k = 0; k < square.length; k++){
      square[k].removeEventListener('click', hello, false)
    }
@@ -84,8 +85,7 @@ return true;
   cpuArr.push(num)
 
   let interval =  setInterval(function(){ 
-    console.log(cpuArr[index])
-    if(cpuArr[index] > -1){
+    if(cpuArr[index] > -1 && currentLevel !== -1){
       overlay[cpuArr[index]].style.visibility = "visible";
       audio[cpuArr[index]].play();
       setTimeout(function(){
@@ -106,8 +106,8 @@ return true;
      clearInterval(interval);
    }
  },1000)
-
 }
+
 
 
   // play again
