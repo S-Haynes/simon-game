@@ -61,7 +61,12 @@ function hello(event){
      square[k].removeEventListener('click', hello, false)
    }
     start.removeEventListener('click', startGame, false)
-  leveltext.innerHTML = "0" + (currentLevel + 1);
+  
+  if(currentLevel+1 > 9){
+    leveltext.innerHTML = currentLevel + 1;
+  } else{
+    leveltext.innerHTML = "0" + (currentLevel + 1);
+  }
   index = 0;
   currentLevel++
   userArr = [];
