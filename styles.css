@@ -31,8 +31,7 @@ p {
 
 .no-select {
    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
+    -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
@@ -65,8 +64,13 @@ p {
 #start {
   margin-left: 15px;
   background: rgb(170, 0, 0);
-  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 1s ease-out;
+  transition: -webkit-filter 1s ease-out;
+  -o-transition: filter 1s ease-out;
   transition: filter 1s ease-out;
+  transition: filter 1s ease-out, -webkit-filter 1s ease-out;
 }
 
 #text{
@@ -80,50 +84,93 @@ p {
 }
 
 #simon-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 400px;
   height: 400px;
 }
 #simon-game{
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 400px;
   height: 400px;
   margin: auto;
 }
 
-@keyframes spin{
+@-webkit-keyframes spin{
   0% {
-    transform: rotate(0deg)
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg)
   }
   40% {
-    transform: rotate(420deg)
+    -webkit-transform: rotate(420deg);
+            transform: rotate(420deg)
   }
   60% {
-    transform: rotate(300deg)
+    -webkit-transform: rotate(300deg);
+            transform: rotate(300deg)
   }
   80% {
-    transform: rotate(380deg)
+    -webkit-transform: rotate(380deg);
+            transform: rotate(380deg)
   }
   100% {
-    transform: rotate(360deg)
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg)
+  }
+}
+
+@keyframes spin{
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg)
+  }
+  40% {
+    -webkit-transform: rotate(420deg);
+            transform: rotate(420deg)
+  }
+  60% {
+    -webkit-transform: rotate(300deg);
+            transform: rotate(300deg)
+  }
+  80% {
+    -webkit-transform: rotate(380deg);
+            transform: rotate(380deg)
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg)
   }
 } 
 
 .square {
-  flex: 1 0 34%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 34%;
+          flex: 1 0 34%;
   height: 47%;
   overflow: hidden;
-  box-shadow: 1px 0px 50px black;
-  filter: grayscale(100%);
+  -webkit-box-shadow: 1px 0px 50px black;
+          box-shadow: 1px 0px 50px black;
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+  -webkit-transition: -webkit-filter 1s ease-out;
+  transition: -webkit-filter 1s ease-out;
+  -o-transition: filter 1s ease-out;
   transition: filter 1s ease-out;
+  transition: filter 1s ease-out, -webkit-filter 1s ease-out;
 }
 
 #level {
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 12px;
   display: inline-block;
   background: #232323;
@@ -163,8 +210,14 @@ p {
   height: 25px;
   top: 64.5%;
   left: 28%;
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -o-transition: transform 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
   z-index: 1001;
 }
 
@@ -257,7 +310,8 @@ p {
 
 #level {
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 12px;
   display: inline-block;
   background: #232323;
@@ -309,4 +363,3 @@ p {
 
   
 }
-
