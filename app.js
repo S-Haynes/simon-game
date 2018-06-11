@@ -167,8 +167,11 @@ function turnOn(){
      for(var i = 0; i < square.length; i++){
        square[i].style.filter = "grayscale(100%)"
     }
-      start.style.filter = "grayscale(100%)"
-     onBtn.addEventListener('click', turnOn, false);
+      start.style.filter = "grayscale(100%)";
+      setTimeout(function(){
+        onBtn.addEventListener('click', turnOn, false);
+      }, 1000)
+     
      offBtn.removeEventListener('click', turnOff, false);
       start.removeEventListener('click', startGame, false);
  }
