@@ -17,7 +17,6 @@ window.addEventListener('load', function(){
  let index = 0;
  let userArr = [];
 
-
  function hello(event){
   event.preventDefault();
   let ele = event.target.getAttribute('data-value')
@@ -30,8 +29,7 @@ window.addEventListener('load', function(){
   checkWin(); 
   if(currentLevel !== -1){
     audio[ele].play();
-  }
-  
+  }  
 }
 
   //check if correct sequence is entered
